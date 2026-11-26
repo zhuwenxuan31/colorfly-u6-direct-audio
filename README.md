@@ -19,6 +19,10 @@ Experimental direct-to-DAC audio for the Colorfly U6 (firmware 2.0, Android 6.0.
 
 源码对应 R23 实验阶段。实机使用 RAM 临时启动。循环暂停恢复、96 kHz 切换、第三方音乐 App 和系统提示音仍需完整验收。本仓库提供源码与测试，原厂固件、Apple Music APK 和设备镜像需要自行取得。
 
+## 从原厂「QQ音乐」打开 Apple Music
+
+[入口替换方法](docs/qqmusic-to-apple-music.md)记录了在 U6 上保留原厂按钮、启动 Apple Music 的做法，附桥接源码、构建和回退步骤。
+
 ## 怎么看代码
 
 | 目录 | 内容 |
