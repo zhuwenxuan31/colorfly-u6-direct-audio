@@ -1,0 +1,39 @@
+type u6_direct_audio domain
+type u6_direct_audio_exec file_type
+typeattribute u6_direct_audio_exec exec_type
+type u6_direct_audio_data file_type
+typeattribute u6_direct_audio_data data_file_type
+type u6_direct_audio_service service_manager_type
+type_transition init u6_direct_audio_exec process u6_direct_audio
+allow init u6_direct_audio process { transition siginh rlimitinh }
+allow u6_direct_audio u6_direct_audio process fork
+allow u6_direct_audio u6_direct_audio unix_dgram_socket { create connect write }
+allow u6_direct_audio logdw_socket sock_file write
+allow u6_direct_audio logd unix_dgram_socket sendto
+allow init u6_direct_audio_exec file { execute getattr open read }
+allow u6_direct_audio u6_direct_audio_exec file { entrypoint execute getattr open read }
+allow init u6_direct_audio_data dir { add_name create getattr open read relabelfrom relabelto search setattr write }
+allow init u6_direct_audio_data file { create getattr open read relabelfrom relabelto setattr write }
+allow u6_direct_audio u6_direct_audio_data dir { getattr open search }
+allow u6_direct_audio u6_direct_audio_data file { getattr lock open read write }
+allow u6_direct_audio audio_device dir { getattr open search }
+allow u6_direct_audio audio_device chr_file { getattr ioctl open read write }
+allow u6_direct_audio servicemanager binder { call transfer }
+allow servicemanager u6_direct_audio binder transfer
+allow servicemanager u6_direct_audio process getattr
+allow servicemanager u6_direct_audio dir search
+allow servicemanager u6_direct_audio file { open read }
+allow u6_direct_audio u6_direct_audio_service service_manager { add find }
+allow appdomain u6_direct_audio_service service_manager find
+allow appdomain u6_direct_audio binder { call transfer }
+allow appdomain u6_direct_audio fd use
+allow u6_direct_audio appdomain binder { call transfer }
+allow u6_direct_audio mediaserver_service service_manager find
+allow u6_direct_audio mediaserver binder { call transfer }
+allow mediaserver u6_direct_audio binder transfer
+allow mediaserver u6_direct_audio_data dir { getattr open search }
+allow mediaserver u6_direct_audio_data file { getattr lock open read write }
+allow devsettings u6_direct_audio_data dir { getattr open search }
+allow devsettings u6_direct_audio_data file { getattr lock open read write }
+allow system_app u6_direct_audio_data dir { getattr open search }
+allow system_app u6_direct_audio_data file { getattr lock open read write }

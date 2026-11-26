@@ -1,0 +1,2 @@
+/dev/u6_audio(/.*)?                    u:object_r:u6_overlay_file:s0
+/u6-payload/bin-u6-direct-audio         u:object_r:u6_direct_audio_exec:s0

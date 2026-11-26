@@ -1,0 +1,13 @@
+on post-fs-data
+    mkdir /data/misc/u6_direct_audio 0750 root audio
+    restorecon /data/misc/u6_direct_audio
+    write /data/misc/u6_direct_audio/board.lock 0
+    chown media audio /data/misc/u6_direct_audio/board.lock
+    chmod 0660 /data/misc/u6_direct_audio/board.lock
+    restorecon /data/misc/u6_direct_audio/board.lock
+
+service u6_direct_audio /system/bin/u6-direct-audio /data/misc/u6_direct_audio/board.lock
+    class main
+    seclabel u:r:u6_direct_audio:s0
+    user media
+    group audio

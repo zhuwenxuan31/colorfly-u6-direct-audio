@@ -1,0 +1,3 @@
+allow mediaserver u6_direct_audio_service service_manager find
+allow mediaserver u6_direct_audio binder call
+allow mediaserver u6_direct_audio fd use

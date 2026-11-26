@@ -1,0 +1,28 @@
+type u6_overlay domain
+type u6_overlay_file file_type
+allow init u6_overlay process { transition siginh rlimitinh }
+allow u6_overlay rootfs file { entrypoint execute getattr open read }
+allow u6_overlay u6_direct_audio_exec file { getattr open read }
+allow u6_overlay device dir { add_name getattr remove_name search write }
+type_transition u6_overlay device dir u6_overlay_file u6_audio.new
+allow u6_overlay u6_overlay_file dir { add_name create getattr open read remove_name rename rmdir search setattr write }
+allow u6_overlay u6_overlay_file file { create getattr open setattr unlink write }
+allow init u6_overlay_file dir { getattr open read search }
+allow init u6_overlay_file file { getattr open read relabelfrom }
+allow init u6_direct_audio_exec file relabelto
+allow zygote u6_overlay_file dir { getattr search }
+allow zygote u6_overlay_file file { execute getattr open read }
+allow mediaserver u6_overlay_file dir { getattr search }
+allow mediaserver u6_overlay_file file { execute getattr open read }
+allow devsettings u6_overlay_file dir { getattr search }
+allow devsettings u6_overlay_file file { execute getattr open read }
+allow u6_direct_audio u6_overlay_file dir { getattr search }
+allow u6_direct_audio u6_overlay_file file { execute getattr open read }
+allow appdomain u6_overlay_file dir { getattr search }
+allow appdomain u6_overlay_file file { execute getattr open read }
+allow system_server u6_overlay_file dir { getattr search }
+allow system_server u6_overlay_file file { execute getattr open read }
+allow init zygote process noatsecure
+allow init mediaserver process noatsecure
+allow init devsettings process noatsecure
+allow init u6_direct_audio process noatsecure

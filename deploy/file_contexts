@@ -1,0 +1,2 @@
+/system/bin/u6-direct-audio             u:object_r:u6_direct_audio_exec:s0
+/data/misc/u6_direct_audio(/.*)?        u:object_r:u6_direct_audio_data:s0
