@@ -1,0 +1,12 @@
+[
+  {
+    "abi": "lib",
+    "sha256": "722f4f47b055538346c6ed9b6075972cce6211b60835b554d8a17c67068ae6fa",
+    "register_call_rva": "0x9ccfc"
+  },
+  {
+    "abi": "lib64",
+    "sha256": "7124ffab4ef9a1412223f70f49ec7f33469e3e14f320a9ea077c141a82711910",
+    "register_call_rva": "0x1094dc"
+  }
+]
