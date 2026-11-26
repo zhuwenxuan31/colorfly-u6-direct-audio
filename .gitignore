@@ -1,0 +1,10 @@
+/out/
+/vendor/
+__pycache__/
+*.py[cod]
+.DS_Store
+*.img
+*.fex
+*.apk
+*.so
+*.ko
